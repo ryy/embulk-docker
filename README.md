@@ -1,2 +1,1 @@
-# embulk-docker
-🐋
+# 🐋 embulk-docker
