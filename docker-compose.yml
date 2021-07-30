@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  embulk:
+    container_name: "embulk"
+    build:
+      context: .
+    volumes:
+      - ./:/root
+    tty: true
+    stdin_open: true
