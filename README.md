@@ -27,8 +27,49 @@ root@:~# cd mkbundle/ && embulk bundle
 ```
 local$ docker-compose exec embulk bash
 
-root@9bcc915e1cb:~# embulk example ./try1
+root@:~# embulk example ./try1
 root@:~# embulk guess ./try1/seed.yml -o config.yml
 root@:~# embulk preview config.yml
 root@:~# embulk run config.yml
+```
+
+## CSV to MySQL
+```
+local$ docker-compose exec embulk bash
+root@:~# embulk run ./csv_to_mysql/config.yml
+
+local$ docker-compose exec mysql bash
+root@:~# mysql -u root -p
+
+mysql> use embulk;
+
+mysql> select * from csv_to_mysql \G;
+*************************** 1. row ***************************
+      id: 1
+ account: 32864
+    time: 2015-01-27 19:23:49
+purchase: 2015-01-27 00:00:00
+ comment: embulk
+*************************** 2. row ***************************
+      id: 2
+ account: 14824
+    time: 2015-01-27 19:01:23
+purchase: 2015-01-27 00:00:00
+ comment: embulk jruby
+*************************** 3. row ***************************
+      id: 3
+ account: 27559
+    time: 2015-01-28 02:20:02
+purchase: 2015-01-28 00:00:00
+ comment: Embulk "csv" parser plugin
+*************************** 4. row ***************************
+      id: 4
+ account: 11270
+    time: 2015-01-29 11:54:36
+purchase: 2015-01-29 00:00:00
+ comment: NULL
+4 rows in set (0.00 sec)
+
+ERROR: 
+No query specified
 ```

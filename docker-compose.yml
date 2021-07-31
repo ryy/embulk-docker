@@ -1,10 +1,22 @@
 version: '3.8'
 services:
   embulk:
-    container_name: "embulk"
+    container_name: embulk
     build:
       context: .
     volumes:
       - ./:/root
     tty: true
     stdin_open: true
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    command:
+      - --sql-mode=ALLOW_INVALID_DATES
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql-data:/var/lib/mysql

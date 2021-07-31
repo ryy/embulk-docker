@@ -5,6 +5,7 @@ GEM
       bundler (>= 1.10.6)
       liquid (~> 4.0.0)
       msgpack (~> 1.1.0)
+    embulk-output-mysql (0.10.1-java)
     liquid (4.0.3)
     msgpack (1.1.0-java)
 
@@ -13,6 +14,7 @@ PLATFORMS
 
 DEPENDENCIES
   embulk (~> 0.9.0)
+  embulk-output-mysql
 
 BUNDLED WITH
    1.16.0
