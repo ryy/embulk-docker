@@ -22,3 +22,11 @@ root@9bcc9185e1cb:~# cd mkbundle/ && embulk bundle
 > Bundle complete! 1 Gemfile dependency, 3 gems now installed.
 > Bundled gems are installed into `/root/mkbundle`
 ```
+
+## Quickstart
+```
+embulk example ./try1
+embulk guess ./try1/seed.yml -o config.yml
+embulk preview config.yml
+embulk run config.yml
+```
