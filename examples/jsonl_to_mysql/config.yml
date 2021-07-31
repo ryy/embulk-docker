@@ -1,0 +1,19 @@
+in:
+  type: file
+  path_prefix: /root/examples/jsonl_to_mysql/sample.jsonl
+  parser:
+    type: jsonl
+    columns:
+      - {name: "id", type: "long"}
+      - {name: "str", type: "string"}
+      - {name: "num", type: "long"}
+      - {name: "bool", type: "boolean"}
+      - {name: "time_at", type: "timestamp", format: '%Y-%m-%d %H:%M:%S'}
+out:
+  type: mysql
+  host: mysql
+  user: root
+  password: root
+  database: embulk
+  table: jsonl_to_mysql
+  mode: replace
