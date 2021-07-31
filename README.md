@@ -28,17 +28,22 @@ root@:~# cd mkbundle/ && embulk bundle
 local$ docker-compose exec embulk bash
 
 root@:~# embulk example ./try1
+
 root@:~# embulk guess ./try1/seed.yml -o config.yml
+
 root@:~# embulk preview config.yml
+
 root@:~# embulk run config.yml
 ```
 
 ## CSV to MySQL
 ```
 local$ docker-compose exec embulk bash
-root@:~# embulk run ./csv_to_mysql/config.yml
+
+root@:~# embulk run ./examples/csv_to_mysql/config.yml
 
 local$ docker-compose exec mysql bash
+
 root@:~# mysql -u root -p
 
 mysql> use embulk;

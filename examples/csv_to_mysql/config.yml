@@ -1,6 +1,6 @@
 in:
   type: file
-  path_prefix: /root/csv_to_mysql/csv/sample.csv
+  path_prefix: /root/examples/csv_to_mysql/csv/sample.csv
   parser:
     charset: UTF-8
     newline: LF

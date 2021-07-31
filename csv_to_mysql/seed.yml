@@ -1,5 +1,0 @@
-in:
-  type: file
-  path_prefix: '/root/csv_to_mysql/csv/sample.csv'
-out:
-  type: stdout
