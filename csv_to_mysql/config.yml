@@ -1,8 +1,6 @@
 in:
   type: file
-  path_prefix: /root/csv_to_mysql/./csv/sample_
-  decoders:
-  - {type: gzip}
+  path_prefix: /root/csv_to_mysql/csv/sample.csv
   parser:
     charset: UTF-8
     newline: LF
@@ -10,7 +8,6 @@ in:
     delimiter: ','
     quote: '"'
     escape: '"'
-    null_string: 'NULL'
     trim_if_not_quoted: false
     skip_header_lines: 1
     allow_extra_columns: false
