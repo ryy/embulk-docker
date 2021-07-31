@@ -74,7 +74,50 @@ purchase: 2015-01-28 00:00:00
 purchase: 2015-01-29 00:00:00
  comment: NULL
 4 rows in set (0.00 sec)
+```
 
-ERROR: 
-No query specified
+## Jsonl to MySQL
+```
+local$ docker-compose exec embulk bash
+
+root@:~# embulk run ./examples/jsonl_to_mysql/config.yml
+
+local$ docker-compose exec mysql bash
+
+root@:~# mysql -u root -p
+
+mysql> use embulk;
+
+mysql> select * from jsonl_to_mysql \G;
+*************************** 1. row ***************************
+     id: 1
+    str: a
+    num: 1
+   bool: 1
+time_at: 2017-01-01 00:00:00
+*************************** 2. row ***************************
+     id: 2
+    str: b
+    num: 2
+   bool: 1
+time_at: 2018-02-01 00:00:00
+*************************** 3. row ***************************
+     id: 3
+    str: c
+    num: 3
+   bool: 0
+time_at: 2019-03-01 00:00:00
+*************************** 4. row ***************************
+     id: 4
+    str: d
+    num: 4
+   bool: 0
+time_at: 2020-04-01 00:00:00
+*************************** 5. row ***************************
+     id: 5
+    str: e
+    num: 5
+   bool: 1
+time_at: 2021-05-01 00:00:00
+5 rows in set (0.00 sec)
 ```
