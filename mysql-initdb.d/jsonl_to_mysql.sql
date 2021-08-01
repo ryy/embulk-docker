@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS jsonl_to_mysql
   `str` varchar(255) DEFAULT NULL,
   `num` bigint DEFAULT NULL,
   `bool` boolean DEFAULT NULL,
-  `time_at` timestamp DEFAULT NULL,
+  `time_at` timestamp NULL DEFAULT NULL
 );
