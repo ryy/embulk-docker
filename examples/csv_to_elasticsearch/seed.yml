@@ -1,0 +1,9 @@
+in:
+  type: file
+  path_prefix: '/root/examples/csv_to_elasticsearch/csv/sample.csv'
+out:
+  type: elasticsearch
+  index: embulk
+  index_type: embulk
+  nodes:
+    - { host: elasticsearch, port: 9200 }

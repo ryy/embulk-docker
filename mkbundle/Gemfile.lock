@@ -5,6 +5,7 @@ GEM
       bundler (>= 1.10.6)
       liquid (~> 4.0.0)
       msgpack (~> 1.1.0)
+    embulk-output-elasticsearch (0.5.0-java)
     embulk-output-mysql (0.10.1-java)
     embulk-parser-jsonl (0.2.1)
     liquid (4.0.3)
@@ -15,6 +16,7 @@ PLATFORMS
 
 DEPENDENCIES
   embulk (~> 0.9.0)!
+  embulk-output-elasticsearch!
   embulk-output-mysql!
   embulk-parser-jsonl!
 
