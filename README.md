@@ -145,7 +145,7 @@ root@:~# gcloud config set project your_project_id # <- Specify the project ID y
 root@:~# root@8a5a0c8aa90d:~# bq mk embulk
 ```
 
-### import BigQuery
+### Import BigQuery
 ```
 local$ docker-compose exec embulk bash
 
