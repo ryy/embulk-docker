@@ -121,3 +121,49 @@ time_at: 2020-04-01 00:00:00
 time_at: 2021-05-01 00:00:00
 5 rows in set (0.00 sec)
 ```
+
+## Jsonl to BigQuery
+- Create a GCP project in advance.
+
+- Set the GCP information in `.env`
+  - `JSONL_TO_BIGQUERY_GCP_JSON_KEY_FILE_PATH`
+    - Your service account key
+  - `JSONL_TO_BIGQUERY_GCP_PROJECT_ID`
+    - Your project id
+
+### Create dataset
+```
+local$ docker-compose exec gcloud bash
+
+# login Google Cloud SDK
+root@:~# gcloud auth login
+
+# set use project
+root@:~# gcloud config set project your_project_id # <- Specify the project ID you created.
+
+# create dataset
+root@:~# root@8a5a0c8aa90d:~# bq mk embulk
+```
+
+### import BigQuery
+```
+local$ docker-compose exec embulk bash
+
+root@:~# embulk run ./examples/jsonl_to_bigquery/config.yml.liquid 
+```
+
+```
+local$ docker-compose exec gloud bash
+root@8a5a0c8aa90d:~# bq query "select * from embulk.jsonl_to_bigquery"
+
+Waiting on bqjob_xxxxxxxxxxxxxxx ... (0s) Current status: DONE   
++-----+------+
+| str | num  |
++-----+------+
+| a   | 1000 |
+| b   | 2000 |
+| c   | 3000 |
+| d   | 4000 |
+| e   | 5000 |
++-----+------+
+```
