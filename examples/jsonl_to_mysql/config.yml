@@ -6,9 +6,10 @@ in:
     columns:
       - {name: "id", type: "long"}
       - {name: "str", type: "string"}
-      - {name: "num", type: "long"}
+      - {name: "num", type: "string"}
       - {name: "bool", type: "boolean"}
       - {name: "time_at", type: "timestamp", format: '%Y-%m-%d %H:%M:%S'}
+    stop_on_invalid_record: true
 out:
   type: mysql
   host: mysql

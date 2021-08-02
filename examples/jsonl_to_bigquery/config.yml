@@ -1,0 +1,26 @@
+in:
+  type: file
+  path_prefix: /root/examples/jsonl_to_bigquery/sample.jsonl
+  parser:
+    type: jsonl
+    columns:
+      - {name: "str", type: "string"}
+      - {name: "num", type: "long"}
+out:
+  type: bigquery
+  auth_method: json_key
+  json_keyfile: ${JSONL_TO_BIGQUERY_GCP_JSON_KEY_FILE_PATH}
+  path_prefix: /tmp/
+  file_ext: .csv.gz
+  source_format: NEWLINE_DELIMITED_JSON
+  project: ${JSONL_TO_BIGQUERY_GCP_PROJECT_NAME}
+  dataset: embulk
+  auto_create_table: true
+  table: jsonl_to_bigquery
+  column_options:
+    - name: str
+      type: STRING
+      mode: REQUIRED
+    - name: num
+      type: INTEGER
+      mode: REQUIRED
