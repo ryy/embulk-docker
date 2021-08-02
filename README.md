@@ -153,7 +153,7 @@ root@:~# embulk run ./examples/jsonl_to_bigquery/config.yml.liquid
 ```
 
 ```
-local$ docker-compose exec gloud bash
+local$ docker-compose exec gcloud bash
 root@8a5a0c8aa90d:~# bq query "select * from embulk.jsonl_to_bigquery"
 
 Waiting on bqjob_xxxxxxxxxxxxxxx ... (0s) Current status: DONE   
