@@ -8,6 +8,7 @@ source 'https://rubygems.org/' do
   # 1. Use following syntax to specify versions of plugins
   #    to install this bundle directory:
   #
+  gem 'embulk-filter-add_time'
   gem 'embulk-output-bigquery'
   gem 'embulk-output-mysql'                      # the latest version
   gem 'embulk-parser-jsonl'

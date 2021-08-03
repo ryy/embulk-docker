@@ -6,6 +6,14 @@ in:
     columns:
       - {name: "str", type: "string"}
       - {name: "num", type: "long"}
+filters:
+  - type: add_time
+    to_column:
+      name: time
+      type: timestamp
+    from_value:
+      mode: upload_time
+      timestamp_format: "%Y-%m-%d %H:%M:%S"
 out:
   type: bigquery
   auth_method: json_key
@@ -24,3 +32,6 @@ out:
     - name: num
       type: INTEGER
       mode: REQUIRED
+    - name: time
+      type: TIMESTAMP
+      mode: NULLABLE
