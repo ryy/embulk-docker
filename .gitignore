@@ -1,6 +1,7 @@
 .bundle
-.embulk
 .bash_history
 mysql-data
 examples/jsonl_to_bigquery/your_gcp_service_account_key.json
 .env
+bundle_dir/.bundle
+bundle_dir/jruby
