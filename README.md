@@ -2,6 +2,10 @@
 
 ## Setup
 ```
+local$ cp .env_sample .env
+```
+
+```
 local$ docker-compose up -d
 ```
 
