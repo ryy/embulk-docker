@@ -14,17 +14,20 @@ local$ docker-compose exec embulk bash
 ```
 
 ```
-root@:~# cd mkbundle/ && embulk bundle
+root@:~# cd embulk_bundle/ && embulk bundle
 
-> 2021-07-30 17:17:56.118 +0000: Embulk v0.9.23
-> Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
-> installing your bundle as root will break this application for all non-root
-> users on this machine.
-> Using bundler 1.16.0
-> Using msgpack 1.4.1 (java)
-> Using embulk 0.10.32 (java)
-> Bundle complete! 1 Gemfile dependency, 3 gems now installed.
-> Bundled gems are installed into `/root/mkbundle`
+2021-08-18 23:42:27.228 +0000: Embulk v0.9.23
+Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
+installing your bundle as root will break this application for all non-root
+users on this machine.
+Fetching gem metadata from https://rubygems.org/......
+Fetching public_suffix 4.0.6
+Installing public_suffix 4.0.6
+...
+...
+...
+Bundle complete! 4 Gemfile dependencies, 28 gems now installed.
+Bundled gems are installed into `./vendor/bundle`
 ```
 
 ## Quickstart
@@ -44,7 +47,7 @@ root@:~# embulk run config.yml
 ```
 local$ docker-compose exec embulk bash
 
-root@:~# embulk run ./examples/csv_to_mysql/config.yml
+root@:~# embulk run -b ./embulk_bundle ./examples/csv_to_mysql/config.yml
 
 local$ docker-compose exec mysql bash
 
@@ -84,7 +87,7 @@ purchase: 2015-01-29 00:00:00
 ```
 local$ docker-compose exec embulk bash
 
-root@:~# embulk run ./examples/jsonl_to_mysql/config.yml
+root@:~# embulk run -b ./embulk_bundle ./examples/jsonl_to_mysql/config.yml
 
 local$ docker-compose exec mysql bash
 
@@ -153,7 +156,7 @@ root@:~# root@8a5a0c8aa90d:~# bq mk embulk
 ```
 local$ docker-compose exec embulk bash
 
-root@:~# embulk run ./examples/jsonl_to_bigquery/config.yml.liquid 
+root@:~# embulk run -b ./embulk_bundle ./examples/jsonl_to_bigquery/config.yml.liquid 
 ```
 
 ```
