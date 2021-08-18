@@ -18,7 +18,7 @@ GEM
       signet (~> 0.7, < 0.12.0)
       time_with_zone
     embulk-output-mysql (0.10.1-java)
-    embulk-parser-jsonl (0.2.2)
+    embulk-parser-jsonl (0.2.1)
     faraday (0.17.4)
       multipart-post (>= 1.2, < 3)
     google-api-client (0.32.1)
