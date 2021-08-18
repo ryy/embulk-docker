@@ -14,17 +14,19 @@ local$ docker-compose exec embulk bash
 ```
 
 ```
-root@:~# cd mkbundle/ && embulk bundle
+root@:~# cd bundle_dir/ && embulk bundle
 
-> 2021-07-30 17:17:56.118 +0000: Embulk v0.9.23
-> Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
-> installing your bundle as root will break this application for all non-root
-> users on this machine.
-> Using bundler 1.16.0
-> Using msgpack 1.4.1 (java)
-> Using embulk 0.10.32 (java)
-> Bundle complete! 1 Gemfile dependency, 3 gems now installed.
-> Bundled gems are installed into `/root/mkbundle`
+2021-08-18 00:45:09.209 +0000: Embulk v0.9.23
+Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
+installing your bundle as root will break this application for all non-root
+users on this machine.
+Fetching gem metadata from https://rubygems.org/......
+...
+...
+Fetching embulk-parser-jsonl 0.2.1
+Installing embulk-parser-jsonl 0.2.1
+Bundle complete! 4 Gemfile dependencies, 28 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
 ```
 
 ## Quickstart
