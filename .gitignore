@@ -1,6 +1,7 @@
 .bundle
 .bash_history
 mysql-data
-examples/jsonl_to_bigquery/your_gcp_service_account_key.json
 .env
 embulk_bundle/vendor
+private_keys/*
+!private_keys/DO_NOT_COMMIT_ANY_OF_THE_FILES_HERE

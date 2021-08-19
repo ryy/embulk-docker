@@ -16,10 +16,9 @@ filters:
       timestamp_format: "%Y-%m-%d %H:%M:%S"
 out:
   type: bigquery
+  mode: replace
   auth_method: json_key
   json_keyfile: {{ env.JSONL_TO_BIGQUERY_GCP_JSON_KEY_FILE_PATH }}
-  path_prefix: /tmp/
-  file_ext: .csv.gz
   source_format: NEWLINE_DELIMITED_JSON
   project: {{ env.JSONL_TO_BIGQUERY_GCP_PROJECT_ID }}
   dataset: embulk
