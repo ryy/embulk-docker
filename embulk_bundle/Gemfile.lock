@@ -6,7 +6,7 @@ GEM
     concurrent-ruby (1.1.9)
     declarative (0.0.20)
     declarative-option (0.1.0)
-    embulk (0.9.23-java)
+    embulk (0.9.25-java)
       bundler (>= 1.10.6)
       liquid (~> 4.0.0)
       msgpack (~> 1.1.0)
@@ -17,7 +17,7 @@ GEM
       representable (~> 3.0.0, < 3.1)
       signet (~> 0.7, < 0.12.0)
       time_with_zone
-    embulk-output-mysql (0.10.1-java)
+    embulk-output-mysql (0.8.7)
     embulk-parser-jsonl (0.2.1)
     faraday (0.17.4)
       multipart-post (>= 1.2, < 3)
@@ -38,7 +38,7 @@ GEM
       signet (~> 0.7)
     httpclient (2.8.3)
     jwt (2.2.3)
-    liquid (4.0.3)
+    liquid (4.0.4)
     memoist (0.16.2)
     mini_mime (1.1.0)
     msgpack (1.1.0-java)
@@ -66,10 +66,10 @@ PLATFORMS
   java
 
 DEPENDENCIES
-  embulk (~> 0.9.0)!
+  embulk (= 0.9.25)!
   embulk-filter-add_time!
   embulk-output-bigquery!
-  embulk-output-mysql!
+  embulk-output-mysql (= 0.8.7)!
   embulk-parser-jsonl!
 
 BUNDLED WITH

@@ -1,38 +1,26 @@
 # 🐋 embulk-docker
 
 ## Setup
-```
-local$ cp .env_sample .env
-```
-
-```
-local$ docker-compose up -d
+```bash
+your-local-pc$ cp .env_sample .env
 ```
 
-```
-local$ docker-compose exec embulk bash
+```bash
+your-local-pc$ docker compose build
+your-local-pc$ docker compose up
 ```
 
+```bash
+your-local-pc$ docker compose exec embulk bash
 ```
-root@:~# cd embulk_bundle/ && embulk bundle
 
-2021-08-18 23:42:27.228 +0000: Embulk v0.9.23
-Don't run Bundler as root. Bundler can ask for sudo if it is needed, and
-installing your bundle as root will break this application for all non-root
-users on this machine.
-Fetching gem metadata from https://rubygems.org/......
-Fetching public_suffix 4.0.6
-Installing public_suffix 4.0.6
-...
-...
-...
-Bundle complete! 4 Gemfile dependencies, 28 gems now installed.
-Bundled gems are installed into `./vendor/bundle`
+```bash
+root@:~# cd embulk_bundle/ && embulk bundle && cd ../
 ```
 
 ## Quickstart
-```
-local$ docker-compose exec embulk bash
+```bash
+local$ docker compose exec embulk bash
 
 root@:~# embulk example ./try1
 
@@ -44,14 +32,15 @@ root@:~# embulk run config.yml
 ```
 
 ## CSV to MySQL
-```
-local$ docker-compose exec embulk bash
+```bash
+local$ docker compose exec embulk bash
 
-root@:~# embulk run -b ./embulk_bundle ./examples/csv_to_mysql/config.yml
+root@:~# embulk run ./examples/csv_to_mysql/config.yml
 
-local$ docker-compose exec mysql bash
+local$ docker compose exec mysql bash
 
 root@:~# mysql -u root -p
+Enter password: root
 
 mysql> use embulk;
 
@@ -84,10 +73,10 @@ purchase: 2015-01-29 00:00:00
 ```
 
 ## Jsonl to MySQL
-```
-local$ docker-compose exec embulk bash
+```bash
+local$ docker compose exec embulk bash
 
-root@:~# embulk run -b ./embulk_bundle ./examples/jsonl_to_mysql/config.yml
+root@:~# embulk run ./examples/jsonl_to_mysql/config.yml
 
 local$ docker-compose exec mysql bash
 
@@ -139,8 +128,8 @@ time_at: 2021-05-01 00:00:00
     - Your project id
 
 ### Create dataset
-```
-local$ docker-compose exec gcloud bash
+```bash
+local$ docker compose exec gcloud bash
 
 # login Google Cloud SDK
 root@:~# gcloud auth login
@@ -153,10 +142,10 @@ root@:~# root@8a5a0c8aa90d:~# bq mk embulk
 ```
 
 ### Import BigQuery
-```
-local$ docker-compose exec embulk bash
+```bash
+local$ docker compose exec embulk bash
 
-root@:~# embulk run -b ./embulk_bundle ./examples/jsonl_to_bigquery/config.yml.liquid 
+root@:~# embulk run ./examples/jsonl_to_bigquery/config.yml.liquid
 ```
 
 ```
