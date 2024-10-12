@@ -1,0 +1,25 @@
+in:
+  type: dynamodb
+  endpoint: http://dynamodb:8000
+  auth_method: basic
+  access_key_id: dummy
+  secret_access_key: dummy
+  scan:
+    total_segment: 1
+  table: user
+  columns:
+    - {name: uuid, type: string, attribute_type: S}
+    - {name: name, type: string, attribute_type: S}
+
+out:
+  type: mysql
+  host: mysql
+  user: root
+  password: root
+  database: embulk
+  table: dynamodb_to_mysql
+  mode: replace
+  column_options:
+    uuid: {type: 'VARCHAR(255)'}
+    name: {type: 'VARCHAR(255)'}
+  create_table_constraint: 'PRIMARY KEY(uuid)'

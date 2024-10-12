@@ -8,19 +8,61 @@ services:
     tty: true
     stdin_open: true
     env_file: .env
+
   mysql:
     container_name: mysql
     image: mysql:5.7
     command:
       - --sql-mode=ALLOW_INVALID_DATES
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
     volumes:
       - ./mysql-initdb.d:/docker-entrypoint-initdb.d
-      # - ./mysql-data:/var/lib/mysql
+
   gcloud:
     container_name: gcloud
     build: ./examples/jsonl_to_bigquery
     tty: true
+
+  dynamodb:
+    container_name: dynamodb
+    image: "amazon/dynamodb-local:latest"
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+    # NOTE: If you want to persist data, use the following command instead of the above.
+    # command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    # volumes:
+    #   - "./dynamodb-data:/home/dynamodblocal/data"
+    ports:
+      - "8000:8000"
+
+  dynamodb-admin:
+    container_name: dynamodb-admin
+    image: aaronshaf/dynamodb-admin
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb:8000
+    ports:
+      - "8001:8001"
+
+  # NOTE: Operation of dynamodb
+  aws-cli:
+    container_name: aws-cli
+    image: amazon/aws-cli:latest
+    command: >
+      /bin/sh -c './init-dynamodb.sh; /bin/sh'
+    environment:
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_EC2_METADATA_DISABLED=true
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./:/workdir/"
+    working_dir: /workdir
+    entrypoint: ['']
+    tty: true
+    depends_on:
+      - dynamodb

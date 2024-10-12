@@ -11,6 +11,7 @@ GEM
       liquid (~> 4.0.0)
       msgpack (~> 1.1.0)
     embulk-filter-add_time (0.3.1-java)
+    embulk-input-dynamodb (1.0.4-java)
     embulk-output-bigquery (0.6.6)
       faraday (~> 0.12)
       google-api-client (< 0.33.0)
@@ -68,6 +69,7 @@ PLATFORMS
 DEPENDENCIES
   embulk (= 0.9.25)!
   embulk-filter-add_time!
+  embulk-input-dynamodb (= 1.0.4)!
   embulk-output-bigquery!
   embulk-output-mysql (= 0.8.7)!
   embulk-parser-jsonl!

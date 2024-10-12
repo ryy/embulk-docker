@@ -163,3 +163,37 @@ Waiting on bqjob_xxxxxxxxxxxxxxx ... (0s) Current status: DONE
 | e   | 5000 |
 +-----+------+
 ```
+
+## DynamoDB to MySQL
+```bash
+local$ docker compose exec embulk bash
+
+root@:~# embulk run ./examples/dynamodb_to_mysql/config.yml
+
+local$ docker compose exec mysql bash
+
+root@:~# mysql -u root -p
+Enter password: root
+
+mysql> use embulk;
+
+mysql> select * from dynamodb_to_mysql \G;
+*************************** 1. row ***************************
+uuid: a9c12546-c5c4-9f22-2bbb-82blcc90b67f
+name: Suzuki Jiro
+*************************** 2. row ***************************
+uuid: b1d23546-d6d5-1f33-3ccc-93cmdde0c78g
+name: Sato Hanako
+*************************** 3. row ***************************
+uuid: c2e34546-e7e6-2g44-4ddd-a4enffe1d89h
+name: Takahashi Ichiro
+*************************** 4. row ***************************
+uuid: d3f45546-f8f7-3h55-5eee-b5fohff2e90i
+name: Tanaka Saburo
+*************************** 5. row ***************************
+uuid: e4g56546-g9g8-4i66-6fff-c6gphgg3f01j
+name: Nakamura Shizuka
+...
+...
+...
+```
