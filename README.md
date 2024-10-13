@@ -197,3 +197,15 @@ name: Nakamura Shizuka
 ...
 ...
 ```
+
+## DynamoDB to DynamoDB
+```bash
+local$ docker compose exec embulk bash
+
+root@:~# embulk run ./examples/dynamodb_to_dynamodb/config.yml
+```
+
+On your host machine.
+````bash
+open http://localhost:8001/
+```

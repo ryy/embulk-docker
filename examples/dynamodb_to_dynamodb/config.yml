@@ -1,0 +1,31 @@
+in:
+  type: dynamodb
+  endpoint: http://dynamodb:8000
+  auth_method: basic
+  access_key_id: dummy
+  secret_access_key: dummy
+  scan:
+    total_segment: 1
+  table: user
+  columns:
+    - {name: uuid, type: string, attribute_type: S}
+    - {name: name, type: string, attribute_type: S}
+
+out:
+  type: dynamodb
+  endpoint: http://dynamodb:8000
+  region: ap-northeast-1
+  mode: upsert
+  auth_method: basic
+  access_key_id: dummy
+  secret_access_key: dummy
+  auto_create_table: true
+  table: dynamotable
+  primary_key: uuid
+  primary_key_type: String
+  write_capacity_units:
+    normal: 5
+    raise: 20
+  read_capacity_units:
+    normal: 6
+    raise: 30

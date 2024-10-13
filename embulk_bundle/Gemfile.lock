@@ -18,6 +18,7 @@ GEM
       representable (~> 3.0.0, < 3.1)
       signet (~> 0.7, < 0.12.0)
       time_with_zone
+    embulk-output-dynamodb (0.1.5)
     embulk-output-mysql (0.8.7)
     embulk-parser-jsonl (0.2.1)
     faraday (0.17.4)
@@ -71,6 +72,7 @@ DEPENDENCIES
   embulk-filter-add_time!
   embulk-input-dynamodb (= 1.0.4)!
   embulk-output-bigquery!
+  embulk-output-dynamodb (= 0.1.5)!
   embulk-output-mysql (= 0.8.7)!
   embulk-parser-jsonl!
 
